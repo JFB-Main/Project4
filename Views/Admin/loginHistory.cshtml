@@ -1,0 +1,203 @@
+﻿@model Project4.Controllers.login_logs
+
+@{
+    ViewBag.Title = "loginHistory";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+    var logList = ViewBag.LogList as List<Project4.Controllers.login_logs>;
+}
+
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("loginHistory", "Admin", FormMethod.Get))
+{
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        LOGIN HISTORY
+                    </h2>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label class="form-label">Useradmin</label>
+                        <input type="text" name="userAdmin" class="form-control" placeholder="Enter the admin name" value="@Request["userAdmin"]" />
+                    </div>
+
+                    <div class="category">
+                        <label class="form-label">Action Type</label>
+                        <select name="statusSearch" class="form-control">
+                            <option value="">-- Select Action --</option>
+                            <option value="success" @(Request["statusSearch"] == "success" ? "selected" : "")>SUCCESS</option>
+                            <option value="failed" @(Request["statusSearch"] == "failed" ? "selected" : "")>FAILED</option>
+                            <option value="logout" @(Request["statusSearch"] == "logout" ? "selected" : "")>LOGOUT</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary button-yellow-design button-layout">Search</button>
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.login_time)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (logList != null)
+                    {
+                        foreach (var item in logList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.login_time)
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+@Styles.Render("https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css")
+@Styles.Render("https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css")
+
+@Scripts.Render("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.19/js/jquery.dataTables")
+@Scripts.Render("https://code.jquery.com/jquery-3.6.0.min.js")
+@Scripts.Render("https://cdn.datatables.net/2.2.2/js/dataTables.js")
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 10    ,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>loginHistory</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.login_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

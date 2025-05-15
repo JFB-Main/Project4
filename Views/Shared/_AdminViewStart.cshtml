@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>HomePage</title>
+    @Styles.Render("~/Content/styles/adminStyle.css")
+</head>
+<body>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-new-edit" style="z-index:10;">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Warehouse®</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto navbar-edit">
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "home_supplier", "Landing", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Products", "home_product", "Landing", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item" id="supplierControlNav" runat="server">
+                                @if (Session["Username"] != null)
+                                {
+                                    @Html.ActionLink("Admin", "supplierControl", "Supplier", new { area = "" }, new { @class = "nav-link" })
+                                }
+                            </li>
+                            <li class="nav-item" id="loginNav" runat="server">
+                                @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link text-white" id="usernameNav" runat="server"></span>
+                            </li>
+                            <li class="nav-item" id="logoutNav" runat="server">
+                                @if (Session["Username"] != null)
+                                {
+                                    @Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link" })
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="sidebar">
+                <div>
+                    <div>
+                        <p class="sidebar-label-design">
+                            Supplier Management :
+                        </p>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Supplier Control", "supplierControl", "Supplier", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("Supplier History", "supplierHistory", "Supplier", new { area = "" }, new { @class = "" })
+                    </div>
+                </div>
+                <hr style="color: #fbfd00; width: 90%; margin-left:auto; margin-right:auto;" />
+                <div>
+                    <div>
+                        <p class="sidebar-label-design">
+                            Stocks Management :
+                        </p>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Stock Control", "stockControl", "Stock", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("Stock History", "stockhistory", "Stock", new { area = "" }, new { @class = "" })
+                    </div>
+                </div>
+                <hr style="color: #fbfd00; width: 90%; margin-left:auto; margin-right:auto;" />
+                <div>
+                    <div>
+                        <p class="sidebar-label-design">
+                            Admin Management :
+                        </p>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Add Admin", "addAdmin", "Admin", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("Login History", "loginHistory", "Admin", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("Mail Inbox", "mailControl", "Mail", new { area = "" }, new { @class = "" })
+                        @Html.ActionLink("Mail History", "mailHistory", "Mail", new { area = "" }, new { @class = "" })
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder-style">
+                <!-- Page content-->
+                @RenderBody()
+            </div>
+        </div>
+    </body>
+</html>

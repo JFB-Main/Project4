@@ -1,0 +1,341 @@
+﻿@model Project4.Controllers.contact
+
+@{
+    ViewBag.Title = "mailControl";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+
+    var emailList = ViewBag.EmailList as List<Project4.Controllers.contact>;
+}
+
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("mailControl", "mail", FormMethod.Get))
+{
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        MAIL INBOX
+                    </h2>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Name</label>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="category">
+                        <label class="form-label">Email Status</label>
+                        <select name="mailStatus" class="form-control">
+                            <option value="">-- Select Action --</option>
+                            <option value="pending" @(Request["statusSearch"] == "pending" ? "selected" : "")>PENDING</option>
+                            <option value="responded" @(Request["statusSearch"] == "responded" ? "selected" : "")>RESPONDED</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" name="actionType" value="search" class="btn btn-primary button-yellow-design button-layout">Search</button>
+                <button type="submit" name="actionType" value="update"  class="btn btn-primary button-black-design button-layout mt-3">Update</button>
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.message)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.status)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.created_at)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.updated_at)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (emailList != null)
+                    {
+                        foreach (var item in emailList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.message)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.created_at)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.updated_at)
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+@Styles.Render("https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css")
+@Styles.Render("https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css")
+
+@Scripts.Render("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.19/js/jquery.dataTables")
+@Scripts.Render("https://code.jquery.com/jquery-3.6.0.min.js")
+@Scripts.Render("https://cdn.datatables.net/2.2.2/js/dataTables.js")
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 10    ,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>loginHistory</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.login_time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>mailControl</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>contact</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.message, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.message, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.created_at, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.updated_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.updated_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.updated_at, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

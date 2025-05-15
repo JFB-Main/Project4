@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="9" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="history_contacts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="old_status" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="new_status" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="changed_at" Type="datetime" />
+    <Property Name="message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="history_stocks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stock_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="stock_price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="stock_amount" Type="int" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" />
+    <Property Name="supplier_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="action_type" Type="nvarchar" MaxLength="6" />
+    <Property Name="action_time" Type="datetime" />
+    <Property Name="stock_id" Type="int" />
+    <Property Name="supplier_id" Type="int" />
+  </EntityType>
+  <EntityType Name="history_suppliers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" />
+    <Property Name="action_type" Type="nvarchar" MaxLength="6" />
+    <Property Name="action_time" Type="datetime" />
+    <Property Name="supplier_id" Type="int" />
+  </EntityType>
+  <EntityType Name="history_suppliers_web">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="image_path" Type="nvarchar" MaxLength="255" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" />
+    <Property Name="action_type" Type="nvarchar" MaxLength="6" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="login_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="login_time" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stocks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplier_id" Type="int" />
+    <Property Name="stock_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="stock_price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="category_id" Type="int" />
+    <Property Name="stock_amount" Type="int" />
+    <Property Name="description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="suppliers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="category_id" Type="int" />
+  </EntityType>
+  <EntityType Name="suppliers_web">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="image_path" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="password_hash" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <Association Name="history_stocks$history_stocks_ibfk_3">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="history_stocks" Type="Self.history_stocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history_stocks">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="history_suppliers$history_suppliers_ibfk_2">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="history_suppliers" Type="Self.history_suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="history_suppliers">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="stocks$stocks_ibfk_1">
+    <End Role="suppliers" Type="Self.suppliers" Multiplicity="0..1" />
+    <End Role="stocks" Type="Self.stocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="suppliers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stocks">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="stocks$stocks_ibfk_2">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="stocks" Type="Self.stocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="stocks">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="suppliers$suppliers_ibfk_1">
+    <End Role="categories" Type="Self.categories" Multiplicity="0..1" />
+    <End Role="suppliers" Type="Self.suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="suppliers">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="enum2str_contacts_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$contacts$status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="enum2str_history_contacts_new_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$history_contacts$new_status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="enum2str_history_contacts_old_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$history_contacts$old_status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="enum2str_history_stocks_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$history_stocks$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="enum2str_history_suppliers_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$history_suppliers$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="enum2str_history_suppliers_web_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="enum2str$history_suppliers_web$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_contacts_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$contacts$status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_history_contacts_new_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$history_contacts$new_status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_history_contacts_old_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$history_contacts$old_status" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_history_stocks_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$history_stocks$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_history_suppliers_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$history_suppliers$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="norm_enum_history_suppliers_web_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="norm_enum$history_suppliers_web$action_type" ReturnType="nvarchar(max)">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_contacts_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$contacts$status" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_history_contacts_new_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$history_contacts$new_status" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_history_contacts_old_status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$history_contacts$old_status" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_history_stocks_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$history_stocks$action_type" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_history_suppliers_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$history_suppliers$action_type" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="str2enum_history_suppliers_web_action_type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="inventory" StoreFunctionName="str2enum$history_suppliers_web$action_type" ReturnType="tinyint">
+    <Parameter Name="setval" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="inventoryModelStoreContainer">
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="contacts" EntityType="Self.contacts" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="history_contacts" EntityType="Self.history_contacts" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="history_stocks" EntityType="Self.history_stocks" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="history_suppliers" EntityType="Self.history_suppliers" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="history_suppliers_web" EntityType="Self.history_suppliers_web" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="login_logs" EntityType="Self.login_logs" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="stocks" EntityType="Self.stocks" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="suppliers" EntityType="Self.suppliers" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="suppliers_web" EntityType="Self.suppliers_web" Schema="inventory" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="inventory" store:Type="Tables" />
+    <AssociationSet Name="history_stocks$history_stocks_ibfk_3" Association="Self.history_stocks$history_stocks_ibfk_3">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="history_stocks" EntitySet="history_stocks" />
+    </AssociationSet>
+    <AssociationSet Name="history_suppliers$history_suppliers_ibfk_2" Association="Self.history_suppliers$history_suppliers_ibfk_2">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="history_suppliers" EntitySet="history_suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="stocks$stocks_ibfk_1" Association="Self.stocks$stocks_ibfk_1">
+      <End Role="suppliers" EntitySet="suppliers" />
+      <End Role="stocks" EntitySet="stocks" />
+    </AssociationSet>
+    <AssociationSet Name="stocks$stocks_ibfk_2" Association="Self.stocks$stocks_ibfk_2">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="stocks" EntitySet="stocks" />
+    </AssociationSet>
+    <AssociationSet Name="suppliers$suppliers_ibfk_1" Association="Self.suppliers$suppliers_ibfk_1">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="suppliers" EntitySet="suppliers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,143 @@
+﻿@model Project4.Controllers.history_suppliers_web
+
+@{
+
+    ViewBag.Title = "supplierHistory";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+
+    var historydata = ViewBag.HistoryList as List<Project4.Controllers.history_suppliers_web>;
+}
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("supplierHistory", "Supplier", FormMethod.Get))
+{
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        SUPPLIER HISTORY
+                    </h2>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label class="form-label">Supplier Name</label>
+                        <input type="text" name="supplierName" class="form-control" placeholder="Enter the supplier name" value="@Request["supplierName"]" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Useradmin</label>
+                        <input type="text" name="userAdmin" class="form-control" placeholder="Enter the admin name" value="@Request["userAdmin"]" />
+                    </div>
+
+                    <div class="category">
+                        <label class="form-label">Action Type</label>
+                        <select name="actionType" class="form-control">
+                            <option value="">-- Select Action --</option>
+                            <option value="INSERT" @(Request["actionType"] == "INSERT" ? "selected" : "")>INSERT</option>
+                            <option value="UPDATE" @(Request["actionType"] == "UPDATE" ? "selected" : "")>UPDATE</option>
+                            <option value="DELETE" @(Request["actionType"] == "DELETE" ? "selected" : "")>DELETE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary button-yellow-design button-layout">Search</button>
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.image_path)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.action_type)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.created_at)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (historydata != null)
+                    {
+                        foreach (var item in historydata)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.address)
+                                </td>
+                                <td>
+                                    <img src='@Url.Content("~/Content" + item.image_path)' width="120" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.action_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.created_at)
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+@Styles.Render("https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css")
+@Styles.Render("https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css")
+
+@Scripts.Render("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.19/js/jquery.dataTables")
+@Scripts.Render("https://code.jquery.com/jquery-3.6.0.min.js")
+@Scripts.Render("https://cdn.datatables.net/2.2.2/js/dataTables.js")
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 3,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>

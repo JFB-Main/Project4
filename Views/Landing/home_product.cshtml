@@ -1,0 +1,229 @@
+﻿@model Project4.Controllers.contact
+
+@{
+    ViewBag.Title = "home_product";
+    Layout = "~/Views/Shared/_LandingViewStart.cshtml";
+    var dataList = ViewBag.ListofData as List<Project4.Controllers.stock>;
+}
+
+@Styles.Render("~/Content/styles/homepage-product.css")
+
+<div class="container-fluid section-hero">
+    <h1>
+        Integrity, Efficiency, Honesty and Pragmatic
+    </h1>
+</div>
+
+<div class="divider">
+    <div class="divider-text">
+        <div class="divider-lowopacity">
+            INTRO
+        </div>
+        <p>
+            ▼ // SIGMA
+        </p>
+        <h3>
+            Intro
+        </h3>
+    </div>
+    <div class="divider-line">
+    </div>
+</div>
+
+<div class="section-intro">
+    <div class="about-intro-vision">
+        <div class="about-intro-vision-title">
+            <h3>
+                Our Vision
+            </h3>
+        </div>
+        <div class="about-intro-vision-display">
+            <p class="vision-display-textEdit1">
+                Creating a supply depot for
+            </p>
+            <p class="vision-display-textEdit2">
+                billions people in 2030s.
+            </p>
+        </div>
+    </div>
+    <div class="about-intro-lenght">
+        <div class="about-intro-lenght-title">
+            <h3>
+                About Us
+            </h3>
+        </div>
+        <div class="about-intro-lenght-desc">
+            <p>
+                Welcome to our company, your trusted partner for efficient and reliable warehousing solutions. With our state-of-the-art facilities, we provide flexible storage options tailored to meet the unique needs of your business.
+            </p>
+            <p>
+                Whether you're managing high-volume inventory, seasonal surges, or specialized goods, we ensure seamless operations, real-time tracking, and secure handling. Our team of experts is committed to optimizing your logistics, helping you save time, reduce costs, and focus on what matters most—growing your business.
+            </p>
+            <p>
+                Experience unparalleled service with our company, where your storage and distribution needs are always in good hands.
+            </p>
+        </div>
+    </div>
+    <div class="about-intro-philosophy">
+        <div class="about-intro-philosophy-title">
+            <h3>
+                • Our Philosophy •
+            </h3>
+        </div>
+        <div class="about-intro-philosophy-desc">
+            <p>
+                Innovative | efficient | customer-driven warehousing solutions.
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="divider">
+    <div class="divider-text">
+        <div class="divider-lowopacity">
+            PRODUCTS
+        </div>
+        <p>
+            ▼ // SIGMA
+        </p>
+        <h3>
+            Products
+        </h3>
+    </div>
+    <div class="divider-line">
+    </div>
+</div>
+<div class="content-supplier">
+    <p class="sup-desc">
+        This comprehensive list comprises all the products carefully stored within the secure confines of our company warehouse system. Each item within our grasp undergoes stringent measures to uphold its pristine quality and ensure that it remains in optimal condition at all times. Our dedicated team meticulously monitors the inventory to guarantee that every product is accounted for and maintained to the highest standards.
+    </p>
+    <hr style="width: 50%; margin-left:auto; margin-right:auto;" />
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div>
+                <div class="mb-3">
+                    <label for="productNameForm" class="form-label">Product Name</label>
+                    <asp:TextBox ID="productNameForm" runat="server" CssClass="form-control" placeholder="Enter the product name"></asp:TextBox>
+                </div>
+                <div class="mb-3">
+                    <label for="supplierForm" class="form-label">Supplier Name</label>
+                    <asp:TextBox ID="supplierForm" runat="server" CssClass="form-control" placeholder="Enter the supplier name"></asp:TextBox>
+                </div>
+            </div>
+            <div class="col-12">
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary button-black-design" OnClick="btnSearch_Click" />
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr style="border-bottom:1px solid black;">
+                        <th>
+                            Stock Name
+                            @*@Html.DisplayNameFor(model => model.stock_name)*@
+                        </th>
+                        <th>
+                            Description
+                            @*@Html.DisplayNameFor(model => model.description)*@
+                        </th>
+                        <th>
+                            Supplier Name
+                            @*@Html.DisplayNameFor(model => model.supplier.name)*@
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dataList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.stock_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.supplier.name)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="alert alert-success">@TempData["Message"]</div>
+    @using (Html.BeginForm("mailAdd", "landing", FormMethod.Post))
+    {
+        <div class="container-fluid footer-ground">
+            <div class="footer-extra">
+                <h1 style="color: #fbfd00">
+                    Contact Us
+                </h1>
+                <p class="lead">
+                    Feel free to contact us if you have any problem
+                </p>
+            </div>
+            <div class="footer-form">
+                <div class="mb-3">
+                    <label for="nameForm" class="form-label">Name</label>
+                    @Html.TextBoxFor(m => m.name, new
+                    {
+                        @class = "form-control",
+                        id = "supplierNameForm",
+                        placeholder = "Enter Your name",
+                    })
+                    @*<input ID="nameForm" name="senderName" class="form-control" placeholder="Enter your name" value="@Request["senderName"]">*@
+                </div>
+                <div class="mb-3">
+                    <label for="emailForm" class="form-label">Email Address</label>
+                    @Html.TextBoxFor(m => m.email, new
+                        {
+                        @class = "form-control",
+                        id = "supplierNameForm",
+                        placeholder = "Enter Your Email",
+                    })
+                    @*<input ID="emailForm" name="emailName" class="form-control" placeholder="Enter your email address" value="@Request["emailName"]">*@
+                </div>
+                <div class="mb-3">
+                    <label for="messageForm" class="form-label">Your Message</label>
+                    @Html.TextAreaFor(m => m.message, new
+                    {
+                        @class = "form-control",
+                        id = "supplierNameForm",
+                        placeholder = "Enter Your Comment",
+                    })
+                    @*<textarea ID="messageForm" name="comment" class="form-control" rows="3" placeholder="Comment">@Request["comment"]</textarea>*@
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary button-yellow-design"> GO CONTACT US</button>
+                </div>
+            </div>
+            <hr />
+            <div class="footer-extra">
+                © Start, 2022. All rights reserved.
+            </div>
+        </div>
+    }
+</footer>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 10,        // Set the number of rows per page
+            "lengthMenu": [5, 10, 15, 20] // Define length options
+        });
+    });
+</script>

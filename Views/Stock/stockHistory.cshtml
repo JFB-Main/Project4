@@ -1,0 +1,163 @@
+﻿@model Project4.Controllers.history_stocks
+
+@{
+    ViewBag.Title = "stockHistory";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+
+    var stockdata = ViewBag.stockList as List<Project4.Controllers.history_stocks>;
+}
+
+
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("stockHistory", "Stock", FormMethod.Get))
+{
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        STOCK HISTORY
+                    </h2>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label class="form-label">Useradmin</label>
+                        <input type="text" name="userAdmin" class="form-control" placeholder="Enter the admin name" value="@Request["userAdmin"]" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Stock Name</label>
+                        <input type="text" name="stockName" class="form-control" placeholder="Enter the product name" value="@Request["stockName"]" />
+                    </div>
+                    <div class="category">
+                        <label class="form-label">Category</label>
+                        @Html.DropDownList("category", (SelectList)ViewBag.CategoryList, "-- Select Category --", new
+                            { @class = "form-control" }
+                        )
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Supplier Name</label>
+                        @Html.DropDownList("supplierName", (SelectList)ViewBag.supplierlist, "-- Select Supplier --",
+                            new { @class = "form-control" }
+                        )
+                    </div>
+                    <div class="category">
+                        <label class="form-label">Action Type</label>
+                        <select name="actionType" class="form-control">
+                            <option value="">-- Select Action --</option>
+                            <option value="INSERT" @(Request["actionType"] == "INSERT" ? "selected" : "")>INSERT</option>
+                            <option value="UPDATE" @(Request["actionType"] == "UPDATE" ? "selected" : "")>UPDATE</option>
+                            <option value="DELETE" @(Request["actionType"] == "DELETE" ? "selected" : "")>DELETE</option>
+                            <option value="DELETE" @(Request["actionType"] == "IN" ? "selected" : "")>IN</option>
+                            <option value="DELETE" @(Request["actionType"] == "OUT" ? "selected" : "")>OUT</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary button-yellow-design button-layout">Search</button>
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.stock_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.stock_price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.stock_amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.username)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.supplier_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.action_type)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.action_time)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (stockdata != null)
+                    {
+                        foreach (var item in stockdata)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.stock_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.stock_price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.stock_amount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.supplier_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.action_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.action_time)
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+@Styles.Render("https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css")
+@Styles.Render("https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css")
+
+@Scripts.Render("https://code.jquery.com/jquery-3.6.0.min.js")
+@Scripts.Render("https://cdn.datatables.net/2.2.2/js/dataTables.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.19/js/jquery.dataTables")
+@Scripts.Render("https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js")
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 3,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>

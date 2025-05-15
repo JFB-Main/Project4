@@ -1,0 +1,254 @@
+﻿@model Project4.Controllers.user
+
+@{
+    ViewBag.Title = "addAdmin";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+
+    var userList = ViewBag.UserList as List<Project4.Controllers.user>;
+    var nganuactiontype = ViewBag.ActionType;
+}
+
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("addAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.id)
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        ADD ADMIN @nganuactiontype
+                    </h2>
+                </div>
+                <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+
+                <div>
+
+                    <div class="alert alert-success">@TempData["Message"]</div>
+                    <div class="mb-3">
+                        <label for="supplierNameForm" class="form-label">Admin Username</label>
+                        @Html.TextBoxFor(m => m.username, new
+                   {
+                       @class = "form-control",
+                       id = "supplierNameForm",
+                       placeholder = "Enter the supplier name",
+                   })
+                    </div>
+                    <div class="mb-3">
+                        <label for="supplierDescForm" class="form-label">Admin Password</label>
+                        @Html.TextBoxFor(m => m.password_hash, new
+                        {
+                            @class = "form-control",
+                            id = "password",
+                            placeholder = "Password",
+                        })
+                    </div>
+                    <div class="category">
+                        <label class="form-label">Action Type</label>
+                        <select name="userType" class="form-control">
+                            <option value="">-- Select Action --</option>
+                            <option value="superadmin" @(Request["userType"] == "superadmin" ? "selected" : "")>Superadmin</option>
+                            <option value="admin" @(Request["userType"] == "admin" ? "selected" : "")>Admin</option>
+                            <option value="adminweb" @(Request["userType"] == "adminweb" ? "selected" : "")>Web Admin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <button type="submit" name="actionType" value="@((ViewBag.ActionType == "Update") ? "Update" : "Add")" ID="ButtonAdd" class="btn btn-primary button-yellow-design button-layout mb-3">@((ViewBag.ActionType == "Update") ? "Update" : "Add")</button>
+                @*<button type="submit" name="actionType" value="Update" ID="ButtonUpdate" class="btn btn-primary button-yellow-design button-layout">Update</button>
+                    <hr />
+                    <button type="submit" name="actionType" value="Delete" ID="ButtonDelete" class="btn btn-primary button-black-design button-layout">Delete</button>*@
+                @*@Html.HiddenFor(m => m.id)*@
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr style="border-bottom:1px solid black;">
+                        <td>
+                            @Html.DisplayNameFor(model => model.id)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.username)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.role)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.created_at)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.updated_at)
+                        </td>
+                        <td>
+                            Button
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (userList != null)
+                    {
+                        foreach (var item in userList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.role)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.created_at)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.updated_at)
+                                </td>
+                                @using (Html.BeginForm("LoadUser", "Admin", FormMethod.Post))
+                                {
+                                    <td>
+                                        @Html.Hidden("id", item.id)
+                                        <button type="submit" name="at_RefillTextBox" value="Update" class="btn btn-primary button-yellow-design button-layout" style="font-size: 12px;">Update</button>
+                                        <button type="submit" name="at_RefillTextBox" value="Delete" class="btn btn-primary button-black-design button-layout mt-2" style="font-size: 12px;">Delete</button>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 3,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>addAdmin</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>user</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.password_hash, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.password_hash, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.password_hash, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.role, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.role, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.role, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.created_at, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.updated_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.updated_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.updated_at, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

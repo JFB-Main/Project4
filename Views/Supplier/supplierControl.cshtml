@@ -1,0 +1,153 @@
+﻿
+@model Project4.Controllers.suppliers_web
+
+@{
+    ViewBag.Title = "supplierControl";
+    Layout = "~/Views/Shared/_AdminViewStart.cshtml";
+    var supplierList = ViewBag.SupplierList as List<Project4.Controllers.suppliers_web>;
+    var nganuactiontype = ViewBag.actionType;
+}
+
+@Styles.Render("~/Content/styles/supplierHistory.css")
+
+@using (Html.BeginForm("supplierControl", "Supplier", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.id)
+    <div class="sup-content">
+        <div class="sup-content-search">
+            <div class="">
+                <div>
+                    <h2>
+                        SUPPLIER CONTROl @nganuactiontype
+                    </h2>
+                </div>
+
+                <div>
+
+                    <div class="alert alert-success">@TempData["Message"]</div>
+                    <div class="mb-3">
+                        <label for="supplierNameForm" class="form-label">Supplier Name</label>
+                        @Html.TextBoxFor(m => m.name, new
+                   {
+                       @class = "form-control",
+                       id = "supplierNameForm",
+                       placeholder = "Enter the supplier name",
+                   })
+                    </div>
+                    <div class="mb-3">
+                        <label for="supplierDescForm" class="form-label">Supplier Description</label>
+                        @Html.TextAreaFor(m => m.description, new
+                   {
+                       @class = "form-control",
+                       id = "supplierDescForm",
+                       placeholder = "Enter the description",
+                   })
+                    </div>
+                    <div class="mb-3">
+                        <label for="supplierAddressForm" class="form-label">Supplier Address</label>
+                        @Html.TextBoxFor(m => m.address, new
+                   {
+                       @class = "form-control",
+                       id = "supplierAddressForm",
+                       placeholder = "Enter the address",
+                   })
+                    </div>
+                    <div class="file-insert mb-3">
+                        <label class="form-label" for="uploadFile">Upload Photo</label>
+                        @Html.TextBox("UploadFile", null, new
+                   {
+                       type = "file",
+                       @class = "form-control",
+                       id = "uploadFile"
+                   })
+                    </div>
+                    @if (ViewBag.ActionType == "Update" || ViewBag.ActionType == "Delete")
+                    {
+                        <div class="category mb-3">
+                            <label for="DropDownSupplier" class="form-label">Select Supplier</label>
+                            @Html.DropDownListFor(m => m.id, (SelectList)ViewBag.CategoryList, "Please Select", new
+                       {
+                           @class = "form-control",
+                           id = "DropDownSupplier"
+                       })
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="">
+                <button type="submit" name="actionType" value="@((ViewBag.ActionType == "Update") ? "Update" : "Add")" ID="ButtonAdd" class="btn btn-primary button-yellow-design button-layout mb-3">@((ViewBag.ActionType == "Update") ? "Update" : "Add")</button>
+                @*<button type="submit" name="actionType" value="Update" ID="ButtonUpdate" class="btn btn-primary button-yellow-design button-layout">Update</button>
+                    <hr />
+                    <button type="submit" name="actionType" value="Delete" ID="ButtonDelete" class="btn btn-primary button-black-design button-layout">Delete</button>*@
+                @*@Html.HiddenFor(m => m.id)*@
+            </div>
+        </div>
+        <div class="sup-content-table">
+            <table class="table table-hover table-striped table-products display" style="outline: 1px solid #343434;" id="tableid">
+                <thead>
+                    <tr style="border-bottom:1px solid black;">
+                        <th>Supplier Name</th>
+                        <th>Description</th>
+                        <th>Address</th>
+                        <th>Photo</th>
+                        <th>Button</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (supplierList != null)
+                    {
+                        foreach (var item in supplierList)
+                        {
+                            <tr>
+                                <td>@item.name</td>
+                                <td>@item.description</td>
+                                <td>@item.address</td>
+                                <td><img src='@Url.Content("~/Content" + item.image_path)' width="120" /></td>
+                                @using (Html.BeginForm("LoadSupplier", "Supplier", FormMethod.Post))
+                                {
+                                    <td>
+                                        @Html.Hidden("id", item.id)
+                                        <button type="submit" name="actionType" value="Update" class="btn btn-primary button-yellow-design button-layout" style="font-size: 12px;">Update</button>
+                                        <button type="submit" name="actionType" value="Delete" class="btn btn-primary button-black-design button-layout mt-2" style="font-size: 12px;">Delete</button>
+                                    </td>
+                                }
+                                @*<td class="" style="flex-direction:row;">
+                                        <button type="submit" name="actionType" value="Update" class="btn btn-primary button-yellow-design button-layout" style="font-size: 12px;">Update</button>
+                                        <button type="submit" name="actionType" value="Delete" ID="ButtonDelete" class="btn btn-primary button-black-design button-layout mt-2" style="font-size: 12px;">Delete</button>
+                                    </td>*@
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>there is no data</td>
+                            <td>there is no data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#tableid').DataTable({
+            "paging": true,          // Enable pagination
+            "pageLength": 3,        // Set the number of rows per page
+            "lengthMenu": [3, 5] // Define length options
+        });
+    });
+</script>
+

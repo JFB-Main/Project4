@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8cf2cc2610d44931a0934757f62dda20" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="inventoryModel.category" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.contact" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.history_contacts" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.history_stocks" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.history_suppliers" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.history_suppliers_web" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.login_logs" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.stock" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.supplier" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.suppliers_web" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.user" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="inventoryModel.history_stocks_history_stocks_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="inventoryModel.history_suppliers_history_suppliers_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="inventoryModel.stocks_stocks_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="inventoryModel.suppliers_suppliers_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="inventoryModel.stocks_stocks_ibfk_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+﻿@model Project4.Controllers.user
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up and Login Form</title>
+    @Styles.Render("~/Content/styles/login.css")
+    @Styles.Render("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css")
+    @Styles.Render("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css");
+
+</head>
+<body>
+
+    <div class="wrapper">
+        @using (Html.BeginForm("login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h1>Log In</h1>
+            <div class="input-box">
+                @Html.TextBoxFor(m => m.username, new
+           {
+               @class = "form-control",
+               id = "username",
+               placeholder = "Username",
+               required = "required"
+           })
+                @Html.ValidationMessageFor(m => m.username)
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                @Html.PasswordFor(m => m.password_hash, new
+           {
+               @class = "form-control",
+               id = "password",
+               placeholder = "Password",
+               required = "required",
+           })
+                @Html.ValidationMessageFor(m => m.password_hash)
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="alert alert-success">@TempData["Message"]</div>
+            <Button type="submit" ID="ButtonLogIn" runat="server" class="btn button-yellow-design button-layout mb-3">Log In</Button>
+            <Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></Label>
+        }
+    </div>
+
+    @Scripts.Render("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js")
+</body>
+</html>

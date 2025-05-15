@@ -1,0 +1,314 @@
+﻿body {
+    background-image: url(https://web-static.hg-cdn.com/endfield/official-v3/oversea/assets/img/common_bg.d874e4.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.section-hero {
+    display: flex;
+    height: 543px;
+    align-items: start;
+    justify-content: center;
+    background-image: url("../Image/bg-hero.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 4rem 0;
+    margin-bottom: -3rem;
+}
+
+.section-hero h1 {
+        bottom: 0;
+        color: #141414;
+        font-size: 44px;
+        letter-spacing: -.0375em;
+        line-height: 1;
+        font-weight: 700;
+    }
+
+.section-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: auto;
+    padding: 0 10rem;
+    gap: 4rem;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 3rem;
+}
+
+.about-intro-vision {
+    max-height: 300px;
+}
+
+.about-intro-vision-title h3 {
+    font-weight: bold;
+    color: #242933;
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+
+.about-intro-vision-display {
+    font-size: 48px;
+    font-weight: 300;
+    padding: 2rem 10rem;
+    margin-bottom: -10rem;
+    margin-top: -2rem;
+    background-image: linear-gradient(-135deg, #000000, #242424, #b4ad19, #dfdf03, #b4ad19, #242424, #000000);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: masked-animation 3s infinite linear;
+}
+
+
+.vision-display-textEdit1 {
+
+}
+
+.vision-display-textEdit2 {
+    white-space: pre-wrap;
+    text-align: right;
+}
+
+.about-intro-lenght-title h3 {
+    font-weight: bold;
+    color: #242933;
+    font-size: 24px;
+    margin-bottom: 3rem;
+}
+
+.about-intro-lenght-desc {  
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: .7rem;
+    font-size: 16px;
+    text-align: justify;
+    gap: 1rem;
+    color: #3d424d;
+    line-height: 2rem;
+}
+
+.about-intro-philosophy-title h3 {
+    font-weight: bold;
+    color: #242933;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    color: #fdfd1f;
+    background-color: #242424;
+    width: fit-content;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.divider {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.divider-text {
+    padding: 0 10rem;
+    padding-top: 2rem;
+}
+
+.divider-lowopacity {
+    bottom: 0;
+    font-family: Novecentowide-Bold;
+    font-size: 10.75rem;
+    height: 10.75rem;
+    letter-spacing: -.1em;
+    line-height: 10.75rem;
+    opacity: .3;
+    position: absolute;
+    transform: translateY(.5rem);
+
+    background-clip: text;
+    background-image: linear-gradient(-45deg, #0000, #0000 20.58050117%, #000 0, #000 29.41949883%, #0000 0, #0000 70.58050117%, #000 0, #000 79.41949883%, #0000 0, #0000);
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: .5rem .5rem;
+    color: #0000;
+    width: fit-content;
+}
+
+.divider-text h3 {
+    font-weight: 600;
+}
+
+.divider-text h3 {
+    bottom: 0;
+    color: #141414;
+    font-size: 4.5rem;
+    letter-spacing: -.0375em;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.divider-line {
+   display: flex;
+    height: 1.125rem;
+    left: 0;
+    top: 2rem;
+    width: 100%;
+}
+
+.divider-line:before {
+    background-color: #141414;
+    content: "";
+    display: block;
+    height: 100%;
+    width: calc(50% -   32.5rem);
+}
+
+.divider-line:after {
+    background-image: linear-gradient(-45deg, #0000, #0000 20.58050117%, #000 0, #000 29.41949883%, #0000 0, #0000 70.58050117%, #000 0, #000 79.41949883%, #0000 0, #0000);
+    background-repeat: repeat;
+    background-size: .5rem .5rem;
+    content: "";
+    display: block;
+    flex: 1 1;
+    height: 100%;
+    opacity: .6;
+}
+
+.content-supplier{
+    padding-bottom: 4rem;
+}
+
+.content-supplier .sup-desc {
+    text-align: center;
+    padding: 0 10rem;
+}
+
+.supplier-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 10rem;
+    gap: 3rem;
+    margin-bottom: 3rem
+}
+
+.supplier-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.row-content {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 310px;
+    background-color: #383838;
+    color: #fff;
+    padding: 0 2rem;
+    padding-top: 1rem;
+    border-radius: 4px;
+}
+
+.card-name-line-group{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-name {
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-img{
+    width: 160px;
+}
+
+.card-line {
+    display: flex;
+    height: 0.25rem;
+    top: 2rem;
+    width: 100%;
+    background-color: #f2f2f2;
+    content: "";
+    width: 10rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-name{
+}
+
+.card-desc{
+    font-weight: 300;
+    text-align: justify;
+    overflow-y: scroll;
+    height: 75px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fbfd00; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dfdf03; 
+}
+
+.card-yellow-block {
+    width: 100%;
+    background-color: #dfdf03;
+    height: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.sup-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 5rem;
+    padding: 0 10rem;
+}
+
+.sup-content-table{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-products {
+    width: 700px;
+}
+
+.button-yellow-design {
+    background-color: #fbfd00;
+    color: #141414;
+    border-color: #ffc107;
+}
+
+.button-black-design {
+    background-color: #242424;
+    color: #fbfd00;
+    border-color: #242424;
