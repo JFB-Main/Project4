@@ -20,7 +20,11 @@ namespace Project4.Controllers
         // GET: Mail
         public ActionResult mailcontrol(contact input, string mailStatus, string actionType)
         {
-               
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var query = model.contacts.AsQueryable();
 
             if (actionType == "search")
@@ -56,6 +60,10 @@ namespace Project4.Controllers
 
         public ActionResult mailHistory(string senderEmail, string adminName, string mailStatus)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var query = model.history_contacts.AsQueryable();
 

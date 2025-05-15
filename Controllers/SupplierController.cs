@@ -21,10 +21,10 @@ namespace Project4.Controllers
         // GET: Supplier
         public ActionResult supplierControl(string actionType, int? supplierId)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var categories = model.suppliers_web.ToList();
 
@@ -49,6 +49,11 @@ namespace Project4.Controllers
 
         public ActionResult supplierHistory(string actionType, string supplierName, string userAdmin)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var query = model.history_suppliers_web.AsQueryable();
 
             if (!string.IsNullOrEmpty(supplierName))
@@ -74,6 +79,12 @@ namespace Project4.Controllers
 
         public ActionResult LoadSupplier(int id, string actionType)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+
             var selectedSupplier = model.suppliers_web.FirstOrDefault(s => s.id == id);
 
             if (actionType == "Delete")
@@ -112,6 +123,11 @@ namespace Project4.Controllers
 
         public ActionResult supplierControl(suppliers_web input, HttpPostedFileBase UploadFile, string actionType)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var categories = model.suppliers_web.ToList();
             ViewBag.CategoryList = new SelectList(categories, "id", "name");
             ViewBag.SupplierList = categories;

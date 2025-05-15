@@ -18,6 +18,11 @@ namespace Project4.Controllers
         // GET: Stock
         public ActionResult stockControl(int? actionType, int? supplierName, string stockname)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var query = model.stocks.AsQueryable();
 
             var categorylist = model.categories.ToList();
@@ -56,6 +61,11 @@ namespace Project4.Controllers
 
         public ActionResult stockHistory(string userAdmin, string stockName, string actionType, int? category, int? supplierName)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var query = model.history_stocks.AsQueryable();
 
             var categorylist = model.categories.ToList();

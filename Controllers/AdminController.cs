@@ -19,6 +19,11 @@ namespace Project4.Controllers
         // GET: Admin
         public ActionResult addAdmin(string at_RefillTextBox, int? userid)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var list = model.users.ToList();
 
             user selectedUser = new user();
@@ -41,6 +46,11 @@ namespace Project4.Controllers
 
         public ActionResult loginHistory(string statusSearch, string userAdmin)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var query = model.login_logs.AsQueryable();
 
             login_logs selectedlogs = new login_logs();
@@ -65,6 +75,11 @@ namespace Project4.Controllers
 
         public ActionResult LoadUser(int id, string at_RefillTextBox)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var selectedUser = model.users.FirstOrDefault(s => s.id == id);
 
             if (at_RefillTextBox == "Delete")
@@ -103,6 +118,11 @@ namespace Project4.Controllers
 
         public ActionResult addAdmin(user input, string actionType, string userType)
         {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var list = model.users.ToList();
             ViewBag.ActionType = actionType; // e.g. "Add", "Update", or "Delete"
             //using ()

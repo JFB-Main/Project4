@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|c:\\users\\javier farel baroto\\documents\\ccit\\semester_4\\asptest\\project4\\views\\landing\\home_supplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\landing\\home_supplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\supplier\\supplierhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\supplier\\supplierhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\stock\\stockcontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\stock\\stockcontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\supplier\\suppliercontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\supplier\\suppliercontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\landingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\landingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\landing\\home_product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\landing\\home_product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,12 +19,28 @@
       "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\mailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\landingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\landingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|c:\\users\\javier farel baroto\\documents\\ccit\\semester_4\\asptest\\project4\\views\\landing\\home_supplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\landing\\home_supplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\supplier\\supplierhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\supplier\\supplierhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\landing\\home_product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\landing\\home_product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\shared\\_landingviewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\stock\\stockcontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|solutionrelative:views\\stock\\stockcontrol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D10C63A1-525B-4DD1-BA35-9A66DE6E94F0}|Project4.csproj|C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\views\\admin\\loginhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -85,8 +85,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 229,
-          "SelectedChildIndex": 15,
+          "DockedHeight": 289,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -110,7 +110,8 @@
               "RelativeToolTip": "Views\\Mail\\mailHistory.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T13:37:10Z"
+              "WhenOpened": "2025-05-13T13:37:10Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -122,19 +123,21 @@
               "RelativeToolTip": "Views\\Mail\\mailControl.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T12:42:43.945Z"
+              "WhenOpened": "2025-05-13T12:42:43.945Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "MailController.cs",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\MailController.cs",
               "RelativeDocumentMoniker": "Controllers\\MailController.cs",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\MailController.cs",
               "RelativeToolTip": "Controllers\\MailController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwFcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T12:37:30.82Z"
+              "WhenOpened": "2025-05-13T12:37:30.82Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -146,7 +149,8 @@
               "RelativeToolTip": "Views\\Admin\\loginHistory.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-13T11:41:53.938Z"
+              "WhenOpened": "2025-05-13T11:41:53.938Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -156,21 +160,23 @@
               "RelativeDocumentMoniker": "Views\\Admin\\addAdmin.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Admin\\addAdmin.cshtml",
               "RelativeToolTip": "Views\\Admin\\addAdmin.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBZwCUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T09:15:46.366Z"
+              "WhenOpened": "2025-05-07T09:15:46.366Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAowHsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T10:34:50.074Z"
+              "WhenOpened": "2025-05-13T10:34:50.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -180,37 +186,40 @@
               "RelativeDocumentMoniker": "Views\\Stock\\stockHistory.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Stock\\stockHistory.cshtml",
               "RelativeToolTip": "Views\\Stock\\stockHistory.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHsAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBZwHsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T08:07:25.138Z"
+              "WhenOpened": "2025-05-07T08:07:25.138Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "stockControl.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Stock\\stockControl.cshtml",
               "RelativeDocumentMoniker": "Views\\Stock\\stockControl.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Stock\\stockControl.cshtml",
               "RelativeToolTip": "Views\\Stock\\stockControl.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADQAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T04:19:51.532Z"
+              "WhenOpened": "2025-05-07T04:19:51.532Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "StockController.cs",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\StockController.cs",
               "RelativeDocumentMoniker": "Controllers\\StockController.cs",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\StockController.cs",
               "RelativeToolTip": "Controllers\\StockController.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAAAFQAAABLAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T04:18:38.41Z"
+              "WhenOpened": "2025-05-07T04:18:38.41Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "supplierControl.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Supplier\\supplierControl.cshtml",
               "RelativeDocumentMoniker": "Views\\Supplier\\supplierControl.cshtml",
@@ -218,56 +227,60 @@
               "RelativeToolTip": "Views\\Supplier\\supplierControl.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-05T01:05:42.362Z"
+              "WhenOpened": "2025-05-05T01:05:42.362Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "SupplierController.cs",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\SupplierController.cs",
               "RelativeDocumentMoniker": "Controllers\\SupplierController.cs",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\SupplierController.cs",
               "RelativeToolTip": "Controllers\\SupplierController.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAowLkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAkwIAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T01:01:13.518Z"
+              "WhenOpened": "2025-05-05T01:01:13.518Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LandingController.cs",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\LandingController.cs",
               "RelativeDocumentMoniker": "Controllers\\LandingController.cs",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Controllers\\LandingController.cs",
               "RelativeToolTip": "Controllers\\LandingController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwDkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T05:09:08.68Z"
+              "WhenOpened": "2025-04-30T05:09:08.68Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "home_supplier.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Landing\\home_supplier.cshtml",
               "RelativeDocumentMoniker": "Views\\Landing\\home_supplier.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Landing\\home_supplier.cshtml",
               "RelativeToolTip": "Views\\Landing\\home_supplier.cshtml",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAAAI8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-05-05T02:39:07.817Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "supplierHistory.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Supplier\\supplierHistory.cshtml",
               "RelativeDocumentMoniker": "Views\\Supplier\\supplierHistory.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Supplier\\supplierHistory.cshtml",
               "RelativeToolTip": "Views\\Supplier\\supplierHistory.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAIBZwAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-07T01:49:13.388Z"
+              "WhenOpened": "2025-05-07T01:49:13.388Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -277,33 +290,36 @@
               "RelativeDocumentMoniker": "Views\\Shared\\_AdminViewStart.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Shared\\_AdminViewStart.cshtml",
               "RelativeToolTip": "Views\\Shared\\_AdminViewStart.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAABUAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAIBZwBUAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T09:07:41.69Z"
+              "WhenOpened": "2025-04-30T09:07:41.69Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "home_product.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Landing\\home_product.cshtml",
               "RelativeDocumentMoniker": "Views\\Landing\\home_product.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Landing\\home_product.cshtml",
               "RelativeToolTip": "Views\\Landing\\home_product.cshtml",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAAABwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAABhwBwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T07:12:58.844Z"
+              "WhenOpened": "2025-04-30T07:12:58.844Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "_LandingViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Shared\\_LandingViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LandingViewStart.cshtml",
               "ToolTip": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Shared\\_LandingViewStart.cshtml",
               "RelativeToolTip": "Views\\Shared\\_LandingViewStart.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGAAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAABhwGAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-30T05:42:03.369Z"
+              "WhenOpened": "2025-04-30T05:42:03.369Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -319,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "login.cshtml",
               "DocumentMoniker": "C:\\Users\\Javier Farel Baroto\\Documents\\CCIT\\SEMESTER_4\\ASPTest\\Project4\\Views\\Account\\login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\login.cshtml",
@@ -342,7 +358,7 @@
           ]
         },
         {
-          "DockedHeight": 90,
+          "DockedHeight": 30,
           "SelectedChildIndex": -1,
           "Children": [
             {
