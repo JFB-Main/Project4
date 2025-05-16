@@ -6,18 +6,20 @@
     Layout = "~/Views/Shared/_AdminViewStart.cshtml";
 
     var stockdata = ViewBag.stockList as List<Project4.Controllers.stock>;
+    var nganuactiontype = ViewBag.ActionType;
 }
 
 @Styles.Render("~/Content/styles/supplierHistory.css")
 
-@using (Html.BeginForm("stockControl", "Stock", FormMethod.Get))
+@using (Html.BeginForm("stockControl", "Stock", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.HiddenFor(m => m.id)
     <div class="sup-content">
         <div class="sup-content-search">
             <div class="">
                 <div>
                     <h2>
-                        STOCK CONTROL
+                        STOCK CONTROL @nganuactiontype
                     </h2>
                 </div>
                 <div>
@@ -30,18 +32,53 @@
 
                     <div class="mb-3">
                         <label class="form-label">Stock Name</label>
-                        <input type="text" name="stockName" class="form-control" placeholder="Enter the stock name" value="@Request["stockname"]" />
+                        @Html.TextBoxFor(m => m.stock_name, new
+                        {
+                            @class = "form-control",
+                            id = "stockForm",
+                            placeholder = "Enter the stock name",
+                        })
+                        @*<input type="text" name="stockName" class="form-control" placeholder="Enter the stock name" value="@Request["stockname"]" />*@
                     </div>
 
                     <div class="category">
-                        <label class="form-label">Action Type</label>
-                        @Html.DropDownList("actionType", (SelectList)ViewBag.CategoryList, "-- Select Category --", new 
+                        <label class="form-label">Category Type</label>
+                        @Html.DropDownList("actionType", (SelectList)ViewBag.CategoryList, "-- Select Category --", new
                             { @class = "form-control" }
                         )
                     </div>
+
+                        <div class="category mb-3">
+                            <label for="DropDownSupplier" class="form-label">Price</label>
+                            @Html.TextBoxFor(m => m.stock_price, new
+                            {
+                                @class = "form-control",
+                                id = "stockForm",
+                                placeholder = "Enter the stock price",
+                            })
+                        </div>
+                        <div class="category mb-3">
+                            <label for="DropDownSupplier" class="form-label">Amount</label>
+                            @Html.TextBoxFor(m => m.stock_amount, new
+                            {
+                                @class = "form-control",
+                                id = "stockForm",
+                                placeholder = "Enter the stock amount",
+                            })
+                        </div>
+                        <div class="category mb-3">
+                            <label for="DropDownSupplier" class="form-label">Description</label>
+                            @Html.TextBoxFor(m => m.description, new
+                            {
+                                @class = "form-control",
+                                id = "stockForm",
+                                placeholder = "Enter the description",
+                            })
+                        </div>
                 </div>
             </div>
             <div class="mt-3">
+                <button type="submit" name="actionTypeupd" value="@((ViewBag.ActionType == "Update") ? "Update" : "Add")" ID="ButtonAdd" class="btn btn-primary button-yellow-design button-layout mb-3">@((ViewBag.ActionType == "Update") ? "Update" : "Add")</button>
                 <button type="submit" class="btn btn-primary button-yellow-design button-layout">Search</button>
             </div>
         </div>
@@ -67,6 +104,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.supplier.name)
                         </th>
+                        <th>
+                            Button
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,11 +128,19 @@
                                     @Html.DisplayFor(modelItem => item.description)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.category.name)
+                                    @Html.DisplayFor(modelItem => item.category.id)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.supplier.name)
                                 </td>
+                                @using (Html.BeginForm("LoadStock", "Stock", FormMethod.Post))
+                                {
+                                    <td>
+                                        @Html.Hidden("id", item.id)
+                                        <button type="submit" name="actionTypeupd" value="Update" class="btn btn-primary button-yellow-design button-layout" style="font-size: 12px;">Update</button>
+                                        <button type="submit" name="actionTypeupd" value="Delete" class="btn btn-primary button-black-design button-layout mt-2" style="font-size: 12px;">Delete</button>
+                                    </td>
+                                }
                             </tr>
                         }
                     }

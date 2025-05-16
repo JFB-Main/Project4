@@ -9,6 +9,10 @@
     <meta name="author" content="" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/styles/styles.css")
+    @section Scripts {
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 </head>
 <body>
 

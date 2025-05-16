@@ -21,10 +21,10 @@ namespace Project4.Controllers
         // GET: Supplier
         public ActionResult supplierControl(string actionType, int? supplierId)
         {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            //if (Session["Username"] == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
 
             var categories = model.suppliers_web.ToList();
 
@@ -49,10 +49,10 @@ namespace Project4.Controllers
 
         public ActionResult supplierHistory(string actionType, string supplierName, string userAdmin)
         {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            //if (Session["Username"] == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
 
             var query = model.history_suppliers_web.AsQueryable();
 
@@ -79,10 +79,10 @@ namespace Project4.Controllers
 
         public ActionResult LoadSupplier(int id, string actionType)
         {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            //if (Session["Username"] == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
 
 
             var selectedSupplier = model.suppliers_web.FirstOrDefault(s => s.id == id);
@@ -123,10 +123,10 @@ namespace Project4.Controllers
 
         public ActionResult supplierControl(suppliers_web input, HttpPostedFileBase UploadFile, string actionType)
         {
-            if (Session["Username"] == null)
-            {
-                return RedirectToAction("Login", "Account");
-            }
+            //if (Session["Username"] == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
 
             var categories = model.suppliers_web.ToList();
             ViewBag.CategoryList = new SelectList(categories, "id", "name");
@@ -165,7 +165,14 @@ namespace Project4.Controllers
                             address = input.address,
                             image_path = imagePath
                         };
+                        var supplierNormalValues = new supplier()
+                        {
+                            name = input.name,
+                            description = input.description,
+                            address = input.address
+                        };
                         model.suppliers_web.Add(supplierValues);
+                        model.suppliers.Add(supplierNormalValues);
                         //model.history_suppliers_web.Add(supplierValues);
                         model.SaveChanges();
                         TempData["Message"] = "Supplier added successfully.";

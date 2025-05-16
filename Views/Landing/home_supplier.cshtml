@@ -149,9 +149,12 @@
                     @Html.TextBoxFor(m => m.email, new
                {
                    @class = "form-control",
+                   type = "email", // Enforces basic email format
+                   pattern = @"^[\w\.-]+@[\w\.-]+\.\w{2,4}$", // Optional stricter regex
                    id = "supplierNameForm",
                    placeholder = "Enter Your Email",
                })
+                    @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                     @*<input ID="emailForm" name="emailName" class="form-control" placeholder="Enter your email address" value="@Request["emailName"]">*@
                 </div>
                 <div class="mb-3">
