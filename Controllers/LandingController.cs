@@ -38,6 +38,7 @@ namespace Project4.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var emailValues = new contact()
                 {
                     name = input.name,
@@ -47,6 +48,7 @@ namespace Project4.Controllers
                     created_at = DateTime.Now,
                     updated_at = DateTime.Now
                 };
+
                 model.contacts.Add(emailValues);
                 model.SaveChanges();
 

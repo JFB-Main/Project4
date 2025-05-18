@@ -41,11 +41,26 @@ namespace Project4.Controllers
             }
             else if (actionType == "update")
             {
-                var mailToUpdate = model.contacts.FirstOrDefault(c => c.email == input.email);
+                var mailToUpdate = model.contacts.FirstOrDefault(c => c.id == input.id);
                 if (mailToUpdate != null)
                 {
                     mailToUpdate.status = mailStatus;
+
                     model.SaveChanges();
+
+                    var historyEmailValues = new history_contacts()
+                    {
+                        email = input.email,
+                        old_status = "pending",
+                        new_status = "responded",
+                        username = Session["Username"].ToString(),
+                        changed_at = DateTime.Now,
+                        message = mailToUpdate.message
+                    };
+
+                    model.history_contacts.Add(historyEmailValues);
+                    model.SaveChanges();
+
                     TempData["Message"] = "Supplier updated.";
                 }
 

@@ -20,10 +20,10 @@ namespace Project4.Controllers
         [HttpGet]
         public ActionResult stockControl(string actionTypeupd, int? actionType, int? supplierName, string stockname, int? stockid)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var query = model.stocks.AsQueryable();
 
@@ -134,10 +134,10 @@ namespace Project4.Controllers
 
         public ActionResult LoadStock(int id, string actionTypeupd)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
 
             var selectedStock = model.stocks.FirstOrDefault(s => s.id == id);
@@ -148,6 +148,23 @@ namespace Project4.Controllers
                 if (selectedStock != null)
                 {
                     //TempData["Message"] = "Nganu test delete.";
+                    var selectedsuppliername = model.suppliers.Find(selectedStock.supplier_id);
+                    history_stocks historystock = new history_stocks()
+                    {
+                        stock_name = selectedStock.stock_name,
+                        description = selectedStock.description,
+                        stock_price = selectedStock.stock_price,
+                        stock_amount = selectedStock.stock_amount,
+                        category_id = selectedStock.category_id,
+                        username = Session["Username"].ToString(),
+                        supplier_id = selectedStock.id,
+                        supplier_name = selectedsuppliername.name,
+                        action_type = "DELETE",
+                        action_time = DateTime.Now,
+                        stock_id = selectedStock.id
+                    };
+
+                    model.history_stocks.Add(historystock);
                     model.stocks.Remove(selectedStock);
                     model.SaveChanges();
                     TempData["Message"] = "Delete successful.";
@@ -181,10 +198,10 @@ namespace Project4.Controllers
 
         public ActionResult stockControl(stock input, string actionTypeupd, int? actionType, int? supplierName)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             //var categories = model.suppliers_web.ToList();
             //ViewBag.CategoryList = new SelectList(categories, "id", "name");
@@ -209,6 +226,26 @@ namespace Project4.Controllers
                                 category_id = actionType
                             };
                             model.stocks.Add(stockValues);
+                            model.SaveChanges();
+
+                            var selectedstockid = model.stocks.OrderByDescending(s => s.id).FirstOrDefault();
+                            var selectedsuppliername = model.suppliers.Find(supplierName);
+
+                            history_stocks historystock = new history_stocks()
+                            {
+                                stock_name = input.stock_name,
+                                description = input.description,
+                                stock_price = input.stock_price,
+                                stock_amount = input.stock_amount,
+                                category_id = actionType,
+                                username = Session["Username"].ToString(),
+                                supplier_id = supplierName,
+                                supplier_name = selectedsuppliername.name,
+                                action_type = "INSERT",
+                                action_time = DateTime.Now,
+                                stock_id = selectedstockid.id
+                            };
+                            model.history_stocks.Add(historystock);
                             model.SaveChanges();
                             TempData["Message"] = "Stock successfully added.";
                             return RedirectToAction("stockControl");
@@ -235,6 +272,25 @@ namespace Project4.Controllers
 
                             model.SaveChanges();
 
+                            var selectedstockid = model.stocks.OrderByDescending(s => s.id).FirstOrDefault();
+                            var selectedsuppliername = model.suppliers.Find(existingStock.supplier_id);
+                            history_stocks historystock = new history_stocks()
+                            {
+                                stock_name = existingStock.stock_name,
+                                description = existingStock.description,
+                                stock_price = existingStock.stock_price,
+                                stock_amount = existingStock.stock_amount,
+                                category_id = existingStock.category_id,
+                                username = Session["Username"].ToString(),
+                                supplier_id = selectedsuppliername.id,
+                                supplier_name = selectedsuppliername.name,
+                                action_type = "UPDATE",
+                                action_time = DateTime.Now,
+                                stock_id = existingStock.id
+                            };
+
+                            model.history_stocks.Add(historystock);
+                            model.SaveChanges();
                             TempData["Message"] = "Stock updated successfully.";
                             return RedirectToAction("stockControl");
                         }

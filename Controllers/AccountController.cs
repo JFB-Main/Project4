@@ -26,6 +26,7 @@ namespace Project4.Controllers
         public ActionResult Login(user input)
         {
 
+
             if (ModelState.IsValid)
             {
                 var existingUser = model.users.FirstOrDefault(u => u.username == input.username);
@@ -36,20 +37,37 @@ namespace Project4.Controllers
 
                 if (existingUser != null)
                 {
+                    login_logs history = new login_logs()
+                    {
+                        username = input.username,
+                        login_time = DateTime.Now,
+                        status = "failed"
+                    };
+
                     bool isPasswordValid = BCrypt.Net.BCrypt.EnhancedVerify(input.password_hash, existingUser.password_hash);
 
                     if (isPasswordValid)
                     {
+
+                        history.status = "success";
+
                         Session["Username"] = input.username;
+
+                        model.login_logs.Add(history);
+                        model.SaveChanges();
+
                         return RedirectToAction("home_supplier", "Landing");
                     }
+
+                    model.login_logs.Add(history);
+                    model.SaveChanges();
                 }
 
                 // Wrong username or password
                 TempData["Message"] = "Invalid username or password.";
                 //return RedirectToAction("login");
 
-                return RedirectToAction("home_product", "Landing");
+                return RedirectToAction("login", "account");
 
                 //if (existingUser != null && isPasswordValid == true)
                 //{
@@ -94,7 +112,19 @@ namespace Project4.Controllers
         // GET: /Account/Logout
         public ActionResult Logout()
         {
+            var usernameSession = Session["Username"];
+            login_logs history = new login_logs()
+            {
+                username = usernameSession.ToString(),
+                login_time = DateTime.Now,
+                status = "logout"
+            };
+
+            model.login_logs.Add(history);
+            model.SaveChanges();
+
             Session.Clear();
+
             return RedirectToAction("home_supplier", "Landing");
         }
     }

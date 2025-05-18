@@ -21,10 +21,10 @@ namespace Project4.Controllers
         // GET: Supplier
         public ActionResult supplierControl(string actionType, int? supplierId)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var categories = model.suppliers_web.ToList();
 
@@ -49,10 +49,10 @@ namespace Project4.Controllers
 
         public ActionResult supplierHistory(string actionType, string supplierName, string userAdmin)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var query = model.history_suppliers_web.AsQueryable();
 
@@ -79,10 +79,10 @@ namespace Project4.Controllers
 
         public ActionResult LoadSupplier(int id, string actionType)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
 
             var selectedSupplier = model.suppliers_web.FirstOrDefault(s => s.id == id);
@@ -123,10 +123,10 @@ namespace Project4.Controllers
 
         public ActionResult supplierControl(suppliers_web input, HttpPostedFileBase UploadFile, string actionType)
         {
-            //if (Session["Username"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
             var categories = model.suppliers_web.ToList();
             ViewBag.CategoryList = new SelectList(categories, "id", "name");
@@ -171,10 +171,40 @@ namespace Project4.Controllers
                             description = input.description,
                             address = input.address
                         };
+
                         model.suppliers_web.Add(supplierValues);
                         model.suppliers.Add(supplierNormalValues);
                         //model.history_suppliers_web.Add(supplierValues);
                         model.SaveChanges();
+
+                        history_suppliers_web historySupplierWeb = new history_suppliers_web()
+                        {
+                            name = input.name,
+                            description = input.description,
+                            address = input.address,
+                            image_path = imagePath,
+                            username = Session["Username"].ToString(),
+                            action_type = "INSERT",
+                            created_at = DateTime.Now,
+                        };
+
+                        var selectedSupplierHistory = model.suppliers.OrderByDescending(s => s.id).FirstOrDefault();
+                        history_suppliers historySupplier = new history_suppliers()
+                        {
+                            name = input.name,
+                            description = input.description,
+                            address = input.address,
+                            username = Session["Username"].ToString(),
+                            action_type = "INSERT",
+                            action_time = DateTime.Now,
+                            supplier_id = selectedSupplierHistory.id
+                        };
+
+                        model.history_suppliers_web.Add(historySupplierWeb);
+                        model.history_suppliers.Add(historySupplier);
+                        //model.history_suppliers_web.Add(supplierValues);
+                        model.SaveChanges();
+
                         TempData["Message"] = "Supplier added successfully.";
                     }
                     else if (actionType == "Update")
@@ -187,17 +217,78 @@ namespace Project4.Controllers
                             supplierToUpdate.description = input.description;
                             supplierToUpdate.address = input.address;
                             supplierToUpdate.image_path = "/images/" + input.image_path;
-                            model.SaveChanges();
                             TempData["Message"] = "Supplier updated.";
+
+                            var supplierOriToUpdate = model.suppliers.Where(s => s.name == input.name).FirstOrDefault();
+
+                            supplierOriToUpdate.name = input.name;
+                            supplierOriToUpdate.description = input.description;
+                            supplierOriToUpdate.address = input.address;
+
+                            model.SaveChanges();
+
+                            history_suppliers_web historySupplierWeb = new history_suppliers_web()
+                            {
+                                name = supplierToUpdate.name,
+                                description = supplierToUpdate.description,
+                                address = supplierToUpdate.address,
+                                image_path = supplierToUpdate.image_path,
+                                username = Session["Username"].ToString(),
+                                action_type = "UPDATE",
+                                created_at = DateTime.Now,
+                            };
+
+                            var selectedSupplierHistory = model.suppliers.Where(s => s.name == input.name).FirstOrDefault();
+                            history_suppliers historySupplier = new history_suppliers()
+                            {
+                                name = input.name,
+                                description = input.description,
+                                address = input.address,
+                                username = Session["Username"].ToString(),
+                                action_type = "UPDATE",
+                                action_time = DateTime.Now,
+                                supplier_id = selectedSupplierHistory.id
+                            };
+
+                            model.history_suppliers_web.Add(historySupplierWeb);
+                            model.history_suppliers.Add(historySupplier);
+                            model.SaveChanges();
                         }
                         actionType = "Update";
                     }
                     else if (actionType == "Delete")
                     {
-                        var supplierToDelete = model.suppliers_web.Find(input.id);
-                        if (supplierToDelete != null)
+                        var supplierwebToDelete = model.suppliers_web.Find(input.id);
+                        var supplierToDelete = model.suppliers.Where(s => s.name == input.name).FirstOrDefault();
+                        if (supplierwebToDelete != null)
                         {
-                            model.suppliers_web.Remove(supplierToDelete);
+                            history_suppliers_web historySupplierWeb = new history_suppliers_web()
+                            {
+                                name = supplierwebToDelete.name,
+                                description = supplierwebToDelete.description,
+                                address = supplierwebToDelete.address,
+                                image_path = supplierwebToDelete.image_path,
+                                username = Session["Username"].ToString(),
+                                action_type = "DELETE",
+                                created_at = DateTime.Now,
+                            };
+
+                            var selectedSupplierHistory = model.suppliers.Where(s => s.name == input.name).FirstOrDefault();
+                            history_suppliers historySupplier = new history_suppliers()
+                            {
+                                name = supplierToDelete.name,
+                                description = supplierToDelete.description,
+                                address = supplierToDelete.address,
+                                username = Session["Username"].ToString(),
+                                action_type = "DELETE",
+                                action_time = DateTime.Now,
+                                supplier_id = supplierToDelete.id
+                            };
+
+                            model.history_suppliers.Add(historySupplier);
+                            model.history_suppliers_web.Add(historySupplierWeb);
+                            model.suppliers_web.Remove(supplierwebToDelete);
+                            model.suppliers.Remove(supplierToDelete);
                             model.SaveChanges();
                             TempData["Message"] = "Supplier deleted.";
                         }
@@ -206,7 +297,7 @@ namespace Project4.Controllers
                 }
                 else
                 {
-                    Console.WriteLine("ngaddasdsadsnu ");
+                    Console.WriteLine("ngaddasdsadsnu");
                     TempData["errorMessage"] = "Model data is not valid";
                     return View();
                 }

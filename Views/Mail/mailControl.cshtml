@@ -26,6 +26,12 @@
                         @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Email ID</label>
+                        @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+                    </div>
+
                     <div class="category">
                         <label class="form-label">Email Status</label>
                         <select name="mailStatus" class="form-control">
